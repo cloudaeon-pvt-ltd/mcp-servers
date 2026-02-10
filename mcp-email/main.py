@@ -10,7 +10,8 @@ import re
 load_dotenv()
 
 # Initialize FastMCP server
-mcp = FastMCP("cloudaeon-outlook-mcp", host="0.0.0.0", port=8011)
+PORT = os.environ.get("CLIENT_ID") || '8080'
+mcp = FastMCP("cloudaeon-outlook-mcp", host="0.0.0.0", port=PORT)
 
 # Constants
 SENDER_EMAIL_ID = os.environ.get("SENDER_EMAIL_ID")
@@ -107,7 +108,7 @@ async def send_email(email_recipient: str, email_subject: str, email_body: str, 
 
 def main():
     # Initialize and run the server
-    mcp.run(transport='streamable-http')    
+    mcp.run(transport='streamable-http')
 
 if __name__ == "__main__":
     main()
