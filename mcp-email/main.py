@@ -10,7 +10,7 @@ import re
 load_dotenv()
 
 # Initialize FastMCP server
-PORT = os.environ.get("CLIENT_ID") || '8080'
+PORT = os.environ.get("PORT") || '8080'
 mcp = FastMCP("cloudaeon-outlook-mcp", host="0.0.0.0", port=PORT)
 
 # Constants
